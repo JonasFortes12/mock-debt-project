@@ -1,0 +1,21 @@
+# .gitignore
+.claude.json
+.mcp.json
+.env
+*.key
+
+# Maven
+target/
+
+# IDE
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# OS / editor
+*.swp
+*.swo
+*~
+.DS_Store
