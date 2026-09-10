@@ -12,6 +12,8 @@ This repository is used to validate the **Debt Detection & Test Generation Pipel
 - **PaymentProcessor**: Hardcoded configuration (DEBT2TEST-2)
 - **ConnectionPool**: Race condition in concurrency (DEBT2TEST-3)
 - **CacheManager**: Unbounded cache issue (DEBT2TEST-4)
+- **AuditLogger**: Sensitive data logged in plaintext (DEBT2TEST-6)
+- **OrderRepository**: N+1 query pattern (DEBT2TEST-7)
 
 ## Jira Project Reference
 
