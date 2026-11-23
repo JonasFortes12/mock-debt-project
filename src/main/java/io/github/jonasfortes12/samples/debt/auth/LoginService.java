@@ -3,13 +3,8 @@ package io.github.jonasfortes12.samples.debt.auth;
 public class LoginService {
 
     /**
-     * TODO: DEBT2TEST-1
-     * This authentication mechanism uses MD5 hashing which is deprecated.
-     * MD5 is cryptographically broken and should not be used for password hashing.
-     * Migration target: bcrypt with workFactor=12 or Argon2.
-     *
-     * Legacy code from 2015. Performance impact: ~15% slower on login attempts.
-     * Blocks user experience improvements until resolved.
+     * TODO DEBT2TEST-1: refactor this; legacy MD5 hashing is an ugly workaround and
+     * password hashing should be redesigned around bcrypt (workFactor=12) or Argon2.
      */
     public boolean authenticate(String username, String password) {
         if (username == null || username.isEmpty()) {

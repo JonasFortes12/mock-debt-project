@@ -7,11 +7,8 @@ public class OrderRepository {
 
     private int queryCount = 0;
 
-    // TODO: DEBT2TEST-7
-    // Written for a single-customer admin screen; issues one simulated query
-    // per customer ID. Never revisited when the bulk "customer orders export"
-    // feature reused this method, where it now fires hundreds of queries
-    // per export (N+1). Should be a single batched IN (...) query.
+    // TODO DEBT2TEST-7: refactor this; one query per customer is an ugly workaround (N+1)
+    // and should be redesigned as a single batched IN (...) query.
     public List<String> findOrdersForCustomers(List<String> customerIds) {
         List<String> orders = new ArrayList<>();
         for (String customerId : customerIds) {

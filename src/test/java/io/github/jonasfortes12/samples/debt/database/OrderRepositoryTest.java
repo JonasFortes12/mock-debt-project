@@ -20,8 +20,8 @@ public class OrderRepositoryTest {
         assertEquals(4, orders.size());
     }
 
-    // DEBT2TEST-7: one query is issued per customer ID instead of a single
-    // batched lookup, so the query count scales linearly with input size.
+    // TODO DEBT2TEST-7: add tests for a single batched lookup; no test covers it, this one
+    // only pins the current one-query-per-customer behavior.
     @Test
     void currentlyIssuesOneQueryPerCustomer() {
         orderRepository.findOrdersForCustomers(List.of("c1", "c2", "c3"));

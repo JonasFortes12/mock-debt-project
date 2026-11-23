@@ -19,8 +19,8 @@ public class PaymentProcessorTest {
         assertThrows(IllegalArgumentException.class, () -> paymentProcessor.process(null));
     }
 
-    // DEBT2TEST-2: the retry path around the hardcoded gateway timeout is
-    // only exercised indirectly here, since the timeout cannot be injected.
+    // TODO DEBT2TEST-2: add tests for the retry path; it is untested directly because the
+    // hardcoded gateway timeout cannot be injected.
     @Test
     void shouldFailOnNegativeAmountAfterRetries() {
         PaymentProcessor.Order order = new PaymentProcessor.Order("order-2", -50.0);

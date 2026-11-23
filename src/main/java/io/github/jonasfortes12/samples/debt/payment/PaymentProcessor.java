@@ -2,11 +2,8 @@ package io.github.jonasfortes12.samples.debt.payment;
 
 public class PaymentProcessor {
 
-    // FIXME: DEBT2TEST-2
-    // Hardcoded payment gateway timeout value mixed with business logic.
-    // Makes the code untestable without manual intervention.
-    // This should be injected via configuration and moved to a separate config class.
-    // See architecture review notes in Jira ticket.
+    // TODO DEBT2TEST-2: configurable timeout is not implemented yet; the gateway timeout is
+    // hardcoded here instead of being injected via configuration.
     private static final int GATEWAY_TIMEOUT_MS = 5000;
 
     private static final int MAX_RETRY_ATTEMPTS = 3;
@@ -43,11 +40,32 @@ public class PaymentProcessor {
         }
     }
 
-    public record Order(String id, double amount) {
+    public static final class Order {
+        private final String id;
+        private final double amount;
+
+        public Order(String id, double amount) {
+            this.id = id;
+            this.amount = amount;
+        }
+
+        public String id() { return id; }
+        public double amount() { return amount; }
         public double getAmount() { return amount; }
     }
 
-    public record PaymentResult(boolean success, String message) {
+    public static final class PaymentResult {
+        private final boolean success;
+        private final String message;
+
+        public PaymentResult(boolean success, String message) {
+            this.success = success;
+            this.message = message;
+        }
+
+        public boolean success() { return success; }
+        public String message() { return message; }
+
         public static PaymentResult success(double amount) {
             return new PaymentResult(true, "Processed: " + amount);
         }

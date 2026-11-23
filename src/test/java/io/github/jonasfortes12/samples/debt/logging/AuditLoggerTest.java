@@ -19,8 +19,8 @@ public class AuditLoggerTest {
         assertEquals(1, auditLogger.getLoggedEntries().size());
     }
 
-    // DEBT2TEST-6: logged entries currently contain the raw password and
-    // card number in plaintext because there is no redaction step yet.
+    // TODO DEBT2TEST-6: document why this test asserts the plaintext password; explain that
+    // it pins the current unredacted logging and must be inverted once redaction exists.
     @Test
     void currentlyLogsSensitiveFieldsInPlaintext() {
         auditLogger.logRequest(new AuditLogger.Request("alice", "s3cr3t", "4111111111111111"));

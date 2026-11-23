@@ -31,8 +31,8 @@ public class CacheManagerTest {
         assertEquals(0, cacheManager.size());
     }
 
-    // DEBT2TEST-4: no test covers eviction under memory pressure because the
-    // cache has no eviction policy or maxSize limit yet.
+    // TODO DEBT2TEST-4: add tests, no test covers eviction under memory pressure because
+    // the cache has no eviction policy or maxSize limit yet.
     @Test
     void shouldReportCorrectSize() {
         cacheManager.put("a", 1);

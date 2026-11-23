@@ -27,8 +27,8 @@ public class ConnectionPoolTest {
         assertNotNull(reacquired);
     }
 
-    // DEBT2TEST-3: concurrent access isn't exercised here because the pool
-    // lacks synchronization; a true concurrency test would be flaky by design.
+    // TODO DEBT2TEST-3: add tests for concurrent access; it is untested because the pool
+    // lacks synchronization and a concurrency test would be flaky.
     @Test
     void shouldNotExceedPoolSizeOnRelease() throws InterruptedException {
         ConnectionPool.DbConnection conn = connectionPool.getConnection();
